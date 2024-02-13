@@ -1,0 +1,23 @@
+﻿#StudentProperties {
+    height: 50;
+    padding: 8;
+    flex-direction: row;
+    justify-content: spaceevenly;
+    align-content: center;
+    align-items: center;
+}
+
+#StudentProperties > label {
+    color: #F4FEFD;
+    font-size: 18;
+}
+
+.change-presence-button {
+    width: 140;
+    background-color: #0ED6CC;
+    color: #F4FEFD;
+    border-radius: 20;
+    font-size: 14;
+    font-weight: bold;
+    padding: 0;
+}

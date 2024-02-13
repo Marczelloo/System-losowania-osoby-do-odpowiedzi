@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="System_losowania_osoby_do_odpowiedzi.Controls.Student"
+             x:Name="this">
+    <ContentView.Resources>
+        <StyleSheet Source="/Resources/Student.css" />
+    </ContentView.Resources>
+    <StackLayout
+        x:Name="StudentContainer"
+        BindingContext="{x:Reference this}" >
+        <FlexLayout x:Name="StudentProperties">
+            <Label Text="{Binding Number, FallbackValue='Number'}" />
+            <Label Text="{Binding Name, FallbackValue='Name'}" />
+            <Label Text="{Binding Surname, FallbackValue='Surname'}" />
+            <Label Text="{Binding Class, FallbackValue='Class'}" />
+            <Label Text="{Binding IsPresentDisplay, FallbackValue='Present'}"/>
+            <Label Text="{Binding RoundsToDraw, FallbackValue='RoundsToDraw'}" />
+            <Button Text="Change Presence" Clicked="Button_Clicked" StyleClass="change-presence-button" />
+        </FlexLayout>
+    </StackLayout>
+</ContentView>

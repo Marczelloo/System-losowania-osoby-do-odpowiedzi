@@ -1,0 +1,114 @@
+﻿^contentpage {
+    color: #F4FEFD;
+    font-family: "Arial";
+    font-size: 18;
+    text-align: center;
+}
+
+contentpage {
+    background-color: #1B2223;
+    padding: 10;
+}
+
+contentpage > scrollview {
+    padding: 10;
+}
+
+#Container {
+    background-color: #1B2223;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-class-frame,
+.edit-student-frame {
+    width: 400;
+    background-color: rgb(58, 79, 80);
+    border-radius: 30;
+    padding: 10;
+    margin: 5;
+}
+
+.edit-class-frame {
+    height: 260;
+}
+
+.edit-student-frame {
+    height: 500;
+}
+
+.edit-class-frame > FlexLayout,
+.edit-student-frame > FlexLayout {
+    flex-direction: column;
+    align-items: center;
+    justify-content: spaceevenly;
+}
+
+.edit-class-frame > FlexLayout > picker, 
+.edit-student-frame > FlexLayout > picker {
+    font-size: 20;
+    margin-bottom: 5;
+}
+
+.edit-student-frame > FlexLayout > entry {
+    width: 300;
+    height: 40;
+    border-color: #0ED6CC;
+    margin-bottom: 5;
+}
+
+.edit-student-frame > FlexLayout > label {
+    margin-bottom: 8;
+    font-style: bold;
+}
+
+button {
+    width: 160;
+    height: 40;
+    background-color: #0ED6CC;
+    border-radius: 20;
+    font-style: bold;
+}
+
+.add-class-button {
+    width: 130;
+}
+
+.remove-class-button {
+    width: 220;
+}
+
+.add-student-button {
+    width: 140;
+    margin-bottom: 10;
+}
+
+.remove-student-button {
+    width: 180;
+}
+
+.remove-class-button, .remove-student-button {
+    background-color: rgb(235, 94, 94);
+}
+
+.edit-class-label, .edit-student-label {
+    color: #F4FEFD;
+    font-size: 24;
+    font-style: bold;
+}
+
+.class-list-frame {
+    background-color: rgb(58, 79, 80);
+    border-radius: 30;
+    width: 500;
+    padding: 10;
+    margin: 10;
+}
+
+#ClassList > label {
+    color: #F4FEFD;
+    font-size: 22;
+    font-style: bold;
+    text-align: center;
+    margin: 10;
+}

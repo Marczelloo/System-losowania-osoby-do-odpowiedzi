@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="System_losowania_osoby_do_odpowiedzi.Pages.EditClassPage"
+             Title="EditClassPage">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Resources/EditClassPage.css" />
+    </ContentPage.Resources>
+    <ScrollView>
+        <FlexLayout
+            x:Name="Container">
+            <Frame
+                StyleClass="edit-class-frame">
+                <FlexLayout
+                    x:Name="EditClassLayout">
+                    <Label
+                        StyleClass="edit-class-label"
+                        Text="Edit class" />
+                    <Picker
+                        x:Name="ClassPicker"
+                        Title="Select class"
+                        SelectedIndexChanged="ClassPicker_SelectedIndexChanged"
+                        />
+                    <Button Text="Add class" Clicked="AddClass_Clicked" StyleClass="add-class-button" />
+                    <Button Text="Remove Current Class" Clicked="RemoveClass_Clicked" StyleClass="remove-class-button"/>
+                </FlexLayout>
+            </Frame>
+
+            <Frame
+                StyleClass="edit-student-frame">
+                <FlexLayout>
+                    <Label
+                        StyleClass="edit-student-label"
+                        Text="Edit student" />
+                    <Label
+                        Text="Add new student to class" />
+                    <Entry
+                        x:Name="EntryName"
+                        Placeholder="Name"
+                        TextChanged="EntryName_TextChanged"/>
+                    <Entry
+                        x:Name="EntrySurname"
+                        Placeholder="Surname"
+                        TextChanged="EntrySurname_TextChanged"/>
+                    <Button Text="Add student" Clicked="AddStudent_Clicked" StyleClass="add-student-button" />
+                    
+                    <Label
+                        Text="Remove student from class" />
+                    <Picker
+                        x:Name="StudentPicker"
+                        Title="Select student"
+                        SelectedIndexChanged="StudentPicker_SelectedIndexChanged"/>
+                    <Button Text="Remove student" Clicked="RemoveStudent_Clicked" StyleClass="remove-student-button" />
+                </FlexLayout>
+            </Frame>
+            <Frame
+                StyleClass="class-list-frame">
+                <VerticalStackLayout
+                    x:Name="ClassList" />
+            </Frame>
+        </FlexLayout>
+    </ScrollView>
+</ContentPage>

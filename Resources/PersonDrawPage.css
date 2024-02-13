@@ -1,0 +1,90 @@
+﻿^contentpage {
+    color: #F4FEFD;
+    font-family: "Arial";
+    font-size: 18;
+    text-align: center;
+}
+
+contentpage {
+    background-color: #1B2223;
+    padding: 10;
+}
+
+#Container {
+    background-color: #1B2223;
+    flex-direction: column;
+    align-items: center;
+}
+
+#DrawLayout {
+    flex-direction: column;
+    align-items: center;
+    gap: 10;
+}
+
+#DrawFrame {
+    background-color: rgb(58, 79, 80);
+    border-radius: 30;
+    width: 300;
+    padding: 10;
+    margin: 5;
+}
+
+#ClassToDraw {
+    margin: 10;
+    font-size: 26;
+    height: 80;
+}
+
+.draw-student-button,
+.draw-lucky-number-button,
+.clear-rounds-button {
+    width: 160;
+    height: 40;
+    background-color: #0ED6CC;
+    border-radius: 20;
+    font-style: bold;
+    margin: 10;
+}
+
+.draw-lucky-number-button {
+    width: 196;
+}
+
+.lucky-number-frame {
+    width: 200;
+    height: 40;
+    background-color: rgb(58, 79, 80);
+    border-radius: 6;
+    border-color: #0ED6CC;
+    border-width: 10;
+    padding: 8;
+}
+.clear-rounds-button {
+    width: 225;
+    background-color: rgb(235, 94, 94);
+}
+
+#studentListFrame {
+    background-color: rgb(58, 79, 80);
+    border-radius: 30;
+    width: 500;
+    padding: 10;
+    margin: 10;
+}
+
+#ClassList {
+    -maui-orientation: vertical;
+    -maui-spacing: 5;
+    flex-direction: column;
+    align-items: center;
+    gap: 5
+}
+
+#ClassList > label {
+    font-size: 22;
+    font-style: bold;
+    text-align: center;
+    color: #F4FEFD;
+    margin: 10;
+}
