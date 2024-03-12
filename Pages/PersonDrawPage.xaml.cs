@@ -166,52 +166,69 @@ public partial class PersonDrawPage : ContentPage
 				Debug.WriteLine("Picked class: " + pickedClass);
 				Student randomPerson = new Student();
 
-                bool roundsToDrawHigher = allStudents.All(student => student.RoundsToDraw > 0);
+				bool roundsToDrawHigher = allStudents.All(student => student.RoundsToDraw > 0);
 				bool allStudentsArePresent = allStudents.All(student => student.IsPresent);
-				
-				if(roundsToDrawHigher)
+
+				if (roundsToDrawHigher)
 				{
 					Debug.WriteLine("All students have rounds to draw protection.");
 					await DisplayAlert("Error", "All students have rounds to draw protection.", "OK");
 					return;
 				}
 
-				if(!allStudentsArePresent)
+				if (!allStudentsArePresent)
 				{
 					Debug.WriteLine("All students are absent.");
 					await DisplayAlert("Error", "All students are absent.", "OK");
 					return;
 				}
-				
-                var random = new Random();
-                int index = 0;
-                bool drawNext = true;
 
-				while(drawNext)
+				var random = new Random();
+				int index = 0;
+				bool drawNext = true;
+				int maxDraws = 0;
+
+				while (drawNext)
 				{
 					index = random.Next(sc.Students.Count);
 					randomPerson = sc.Students[index];
-
-					if(randomPerson.RoundsToDraw == 0 && randomPerson.IsPresent && randomPerson.Number != luckyNumber)
+					if (randomPerson.RoundsToDraw == 0 && randomPerson.IsPresent && randomPerson.Number != luckyNumber)
 					{
-                        drawNext = false;
-                    }
+						drawNext = false;
+					}
 					else
 					{
 						Debug.WriteLine("Drawed student has lucky number or is absent or has rounds to draw protection.");
 					}
-				}	
-           
-                foreach (var s in sc.Students)
-				{
-					if(s.RoundsToDraw > 0) s.RoundsToDraw--;
+
+					if (maxDraws > 10)
+					{
+						await DisplayAlert("Error", "Cannot draw student. All students have rounds to draw protection.", "OK");
+						drawNext = false;
+					}
+
+					maxDraws++;
 				}
 
-				sc.Students[index].RoundsToDraw = 3;
+				foreach (var s in sc.Students)
+				{
+					if (s.RoundsToDraw > 0) s.RoundsToDraw--;
+				}
 
-				await DisplayAlert("Drawed student: ", randomPerson.Name + " " + randomPerson.Surname, "OK");
-				UpdateList();
-				SaveStudents();
+				if (maxDraws < 10)
+				{
+					sc.Students[index].RoundsToDraw = 3;
+				}
+
+                UpdateList();
+                SaveStudents();
+
+                if (maxDraws < 10)
+				{
+					await DisplayAlert("Drawed student: ", randomPerson.Name + " " + randomPerson.Surname, "OK");
+				}
+
+				
 			}
 		}
 	}
@@ -221,13 +238,19 @@ public partial class PersonDrawPage : ContentPage
 		Debug.WriteLine("Selected class: " + ClassToDraw.SelectedItem);
 		string selectedClass = ClassToDraw.SelectedItem as string;
 		pickedClass = selectedClass;
+		UpdateList();
+        Debug.WriteLine("Drawing lucky number");
+        int highestNumber = allStudents.Where(student => student.Class == pickedClass).Count();
+        int randomNumber = new Random().Next(1, highestNumber + 1);
+        luckyNumber = randomNumber;
+        LuckyNumberLabel.Text = "Lucky number: " + luckyNumber;
     }
 
 	private void DrawNumberButton_Clicked(object sender, EventArgs e)
 	{
 		Debug.WriteLine("Drawing lucky number");
-        int highestNumber = allStudents.Max(student => student.Number);
-        int randomNumber = new Random().Next(1, highestNumber + 1);
+        int highestNumber = allStudents.Where(student => student.Class == pickedClass).Count();
+		int randomNumber = new Random().Next(1, highestNumber + 1);
         luckyNumber = randomNumber;
 		LuckyNumberLabel.Text = "Lucky number: " + luckyNumber;
     }

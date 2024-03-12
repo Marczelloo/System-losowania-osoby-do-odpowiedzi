@@ -9,13 +9,13 @@
     <StackLayout
         x:Name="StudentContainer"
         BindingContext="{x:Reference this}" >
-        <FlexLayout x:Name="StudentProperties">
-            <Label Text="{Binding Number, FallbackValue='Number'}" />
-            <Label Text="{Binding Name, FallbackValue='Name'}" />
-            <Label Text="{Binding Surname, FallbackValue='Surname'}" />
-            <Label Text="{Binding Class, FallbackValue='Class'}" />
+        <FlexLayout x:Name="StudentProperties" >
+            <Label Text="{Binding Number, FallbackValue='Number'}"/>
+            <Label Text="{Binding Name, FallbackValue='Name'}"/>
+            <Label Text="{Binding Surname, FallbackValue='Surname'}"/>
+            <Label Text="{Binding Class, FallbackValue='Class'}"/>
             <Label Text="{Binding IsPresentDisplay, FallbackValue='Present'}"/>
-            <Label Text="{Binding RoundsToDraw, FallbackValue='RoundsToDraw'}" />
+            <Label Text="{Binding RoundsToDraw, FallbackValue='RoundsToDraw'}"/>
             <Button Text="Change Presence" Clicked="Button_Clicked" StyleClass="change-presence-button" />
         </FlexLayout>
     </StackLayout>
