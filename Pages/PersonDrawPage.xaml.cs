@@ -167,7 +167,8 @@ public partial class PersonDrawPage : ContentPage
 				Student randomPerson = new Student();
 
 				bool roundsToDrawHigher = allStudents.All(student => student.RoundsToDraw > 0);
-				bool allStudentsArePresent = allStudents.All(student => student.IsPresent);
+                bool allStudentsAreAbsent = !allStudents.Any(student => student.Class == pickedClass && student.IsPresent);
+				Debug.WriteLine("TEST: " + allStudentsAreAbsent);
 
 				if (roundsToDrawHigher)
 				{
@@ -176,7 +177,7 @@ public partial class PersonDrawPage : ContentPage
 					return;
 				}
 
-				if (!allStudentsArePresent)
+				if (allStudentsAreAbsent)
 				{
 					Debug.WriteLine("All students are absent.");
 					await DisplayAlert("Error", "All students are absent.", "OK");
